@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vue Profile Card</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app" class="card">
+  <h1>User Profile</h1>
+
+  <label>Name:</label>
+  <input v-model="name" placeholder="Enter name" />
+
+  <label>Email:</label>
+  <input v-model="email" placeholder="Enter email" />
+
+  <p v-if="name && email">👋 Hello, {{ name }} ({{ email }})!</p>
+
+  <button @click="toggleHobbies">{{ showHobbies ? 'Hide' : 'Show' }} Hobbies</button>
+
+  <ul v-show="showHobbies">
+    <li v-for="(hobby, index) in hobbies" :key="index">
+      {{ index + 1 }}. {{ hobby }}
+    </li>
+  </ul>
+
+  <button @click="addHobby">➕ Add Hobby</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

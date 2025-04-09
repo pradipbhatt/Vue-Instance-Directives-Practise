@@ -1,0 +1,31 @@
+<template>
+    <form @submit.prevent="submitForm">
+      <input v-model="name" placeholder="Name">
+      <input v-model.number="age" type="number" placeholder="Age">
+      <select v-model="country">
+        <option v-for="country in countries" :value="country">{{ country }}</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        name: '',
+        age: null,
+        country: '',
+        countries: ['USA', 'Canada', 'UK', 'Australia']
+      }
+    },
+    methods: {
+      submitForm() {
+        console.log('Form submitted:', { name: this.name, age: this.age, country: this.country })
+      }
+    }
+  }
+  </script>
+  
+  
+  
