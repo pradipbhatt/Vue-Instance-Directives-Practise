@@ -10,25 +10,27 @@
 <body>
 
 <div id="app" class="card">
-  <h1>User Profile</h1>
+  <fieldset>
+    <legend><h1>User Profile</h1></legend>
 
-  <label>Name:</label>
-  <input v-model="name" placeholder="Enter name" />
+    <label for="name">Name:</label>
+    <input id="name" v-model="name" placeholder="Enter name" />
 
-  <label>Email:</label>
-  <input v-model="email" placeholder="Enter email" />
+    <label for="email">Email:</label>
+    <input id="email" v-model="email" placeholder="Enter email" />
 
-  <p v-if="name && email">👋 Hello, {{ name }} ({{ email }})!</p>
+    <p v-if="name && email">👋 Hello, <strong>{{ name }}</strong> (<a href="mailto:{{ email }}">{{ email }}</a>)!</p>
 
-  <button @click="toggleHobbies">{{ showHobbies ? 'Hide' : 'Show' }} Hobbies</button>
+    <button @click="toggleHobbies">{{ showHobbies ? 'Hide' : 'Show' }} Hobbies</button>
 
-  <ul v-show="showHobbies">
-    <li v-for="(hobby, index) in hobbies" :key="index">
-      {{ index + 1 }}. {{ hobby }}
-    </li>
-  </ul>
+    <ul v-show="showHobbies">
+      <li v-for="(hobby, index) in hobbies" :key="index">
+        {{ index + 1 }}. {{ hobby }}
+      </li>
+    </ul>
 
-  <button @click="addHobby">➕ Add Hobby</button>
+    <button @click="addHobby">➕ Add Hobby</button>
+  </fieldset>
 </div>
 
 <script src="app.js"></script>
